@@ -634,7 +634,7 @@ $this->load->view('ktube/redirect_page',$data);
             				}
 				
 			} // else
-	#header( "refresh:0.00001;url=$site/ktube_control/mydocument" );
+	header( "refresh:0.00001;url=$site/ktube_control/mydocument" );
 
 	}//function  
 	
