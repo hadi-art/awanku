@@ -533,7 +533,8 @@ exec($commanddelete);
 
 
 
-$this->load->view('ktube/redirect_page',$data);
+###$this->load->view('ktube/redirect_page',$data);
+redirect('/ktube_control/mydocument', 'refresh');
 
 /*---------------------------------------delete temp file-------------------------------------------------------------------*/
 
@@ -629,13 +630,14 @@ $this->load->view('ktube/redirect_page',$data);
 				mysql_query($q);
 			
 						
-					$this->load->view('ktube/redirect_page',$data);
+					###$this->load->view('ktube/redirect_page',$data);
+					redirect('/ktube_control/mydocument', 'refresh');
 					
 				
             				}
 				
 			} // else
-	header( "refresh:0.00001;url=$site/ktube_control/mydocument" );
+	###header( "refresh:0.00001;url=$site/ktube_control/mydocument" );
 
 	}//function  
 	
