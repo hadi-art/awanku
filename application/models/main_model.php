@@ -53,10 +53,10 @@ class Main_model extends CI_Model {
 
 	public function mysqli_custom_insert($query){
 
-        $servername = "localhost";
-        $username = "username";
-        $password = "password";
-        $dbname = "myDB";
+        $servername = "127.0.0.1";
+        $username = "root";
+        $password = "";
+        $dbname = "awanku";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
