@@ -470,7 +470,7 @@ echo "</pre>";
                 		
 						
 						$q="insert into ktube_content set title='$title', subj_id='$_POST[subjek]',profile_id='$_POST[idp]', level='$levelcek', level_id='$level_id', type2='$_POST[type2]',upload_by='$_POST[upload_by]',  name='$nameasal', path='$target_pathdb', type='$type',  size ='$size', flag='1',time='$datex', thumbnail_img = '$imageFile',source_id='$_POST[source]', server_id='1', form='$form'";
-				mysql_query($q); 
+				mysqli_query($q);
 					
 					
 					
