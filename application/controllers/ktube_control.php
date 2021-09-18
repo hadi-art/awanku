@@ -12,6 +12,9 @@ class Ktube_control extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('upload');
 		$this->load->library('pagination');
+
+		//to use custom mysqli
+        $this->load->model('main_model');
 		$site=site_url();
 		$base=base_url();
 		date_default_timezone_set ( 'Asia/Kuala_Lumpur' );
@@ -470,7 +473,12 @@ echo "</pre>";
                 		
 						
 						$q="insert into ktube_content set title='$title', subj_id='$_POST[subjek]',profile_id='$_POST[idp]', level='$levelcek', level_id='$level_id', type2='$_POST[type2]',upload_by='$_POST[upload_by]',  name='$nameasal', path='$target_pathdb', type='$type',  size ='$size', flag='1',time='$datex', thumbnail_img = '$imageFile',source_id='$_POST[source]', server_id='1', form='$form'";
-				mysqli_query($q);
+				#mysqli_query($q);
+
+                         $insert_query = $this->main_model->mysqli_custom_insert($q);
+
+				        //sent query to mysqli custom connector
+
 					
 					
 					
