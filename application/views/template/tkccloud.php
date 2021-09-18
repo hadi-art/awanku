@@ -1,0 +1,1 @@
+<img src="<?php echo $base; ?>images/tkccloud.png" alt="K tube" width="100" height="60"/>

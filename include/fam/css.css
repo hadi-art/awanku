@@ -1,0 +1,58 @@
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+#table
+{
+border-collapse:collapse;
+}
+#table, #td, #th
+{
+border:0px solid black;
+}
+div.blackbar {
+	width: 100%; 
+	height: 43px;
+	background-image:url(../images/black_band.jpg);
+	background-repeat: repeat-x;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-align:center;
+	color:#FFFFFF;
+}
+div.text {
+	margin-top:inherit 10px;
+}
+
+/* Table border
+-----------------------------------------------------------------------------*/
+tr.top td { border-top: thin solid black; }
+tr.bottom td { border-bottom: thin solid black; }
+tr.row td:first-child { border-left: thin solid black; }
+tr.row td:last-child { border-right: thin solid black; }
+.topborder { border-top: thin solid black; }
+.bottomborder { border-bottom: thin solid black; }
+.lefttd {border-bottom: thin solid black; border-left: thin solid black; padding-left: 5px; padding-right: 5px;}
+.lasttd {border-bottom: thin solid black; border-left: thin solid black; border-right: thin solid black; padding-left: 5px; padding-right: 5px;}
+
+.smallcontent {font-size:10px;}
+
+table#thetableclick {
+    border-collapse: collapse;   
+}
+#thetableclick tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#thetableclick tr:hover {
+    background-color: #ccc;
+}
+#thetableclick th {
+    background-color: #fff;
+}
+#thetableclick th, #example td {
+    padding: 3px 5px;
+}
+#thetableclick td:hover {
+    cursor: pointer;
+}
