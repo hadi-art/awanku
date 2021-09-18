@@ -342,6 +342,7 @@ class Ktube_control extends CI_Controller {
 	public function add_file(){
 	
 		$base=base_url();
+        $site=site_url();
 		$data=array(
 					'page' => "Upload",
 					'site' => site_url(),
