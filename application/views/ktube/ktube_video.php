@@ -161,7 +161,7 @@ return $name;
 	
 	
 <?php
-$datetime = date("Y-m-d h:i:sa");
+$datetime = date("Y-m-d h:i:s");
 $cid=$_GET["cid"];
 ?>
 
