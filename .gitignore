@@ -1,3 +1,5 @@
 /vendor/
 subject/
 application/config/database.php
+application/logs
+.idea/

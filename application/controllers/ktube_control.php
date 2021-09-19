@@ -12,6 +12,9 @@ class Ktube_control extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->library('upload');
 		$this->load->library('pagination');
+
+		//to use custom mysqli
+        $this->load->model('main_model');
 		$site=site_url();
 		$base=base_url();
 		date_default_timezone_set ( 'Asia/Kuala_Lumpur' );
@@ -339,6 +342,7 @@ class Ktube_control extends CI_Controller {
 	public function add_file(){
 	
 		$base=base_url();
+        $site=site_url();
 		$data=array(
 					'page' => "Upload",
 					'site' => site_url(),
@@ -470,16 +474,21 @@ echo "</pre>";
                 		
 						
 						$q="insert into ktube_content set title='$title', subj_id='$_POST[subjek]',profile_id='$_POST[idp]', level='$levelcek', level_id='$level_id', type2='$_POST[type2]',upload_by='$_POST[upload_by]',  name='$nameasal', path='$target_pathdb', type='$type',  size ='$size', flag='1',time='$datex', thumbnail_img = '$imageFile',source_id='$_POST[source]', server_id='1', form='$form'";
-				mysql_query($q); 
-					
+				mysql_query($q);
+
+                         #$insert_query = $this->main_model->mysqli_custom_insert($q);
+
+				        //sent query to mysqli custom connector
+
+
 					
 					
 /*<!---------------------------------video converter---------------------------------------------------->*/
 
 #Library/WebServer/Documents/awanku/subject/vid
- $command='/usr/local/bin/HandbrakeCLI -i "/Library/WebServer/Documents/awanku/subject/vid/'.$name.'" -t 3 --angle 1 -c 1 -o "/Library/WebServer/Documents/awanku/subject/vid/converted/'.$newid.".mp4".'"  -f mp4  -O  -w 480 --loose-anamorphic  --modulus 2 -e x264 -q 22 -r 25 --pfr -a 1 -E faac -6 dpl2 -R Auto -B 128 -D 0 --gain 0 --audio-fallback ffac3 --x264-profile=main  --h264-level="3.0"  --verbose=1';
-
-#exec($command); 
+ $command='HandBrakeCLI -i "subject/vid/'.$name.'" -t 3 --angle 1 -c 1 -o "subject/vid/converted/'.$newid.".mp4".'"  -f mp4  -O  -w 480 --loose-anamorphic  --modulus 2 -e x264 -q 22 -r 25 --pfr -a 1 -E faac -6 dpl2 -R Auto -B 128 -D 0 --gain 0 --audio-fallback ffac3 --x264-profile=main  --h264-level="3.0"  --verbose=1';
+ echo $command;
+#exec($command);
 #shell_exec($command);
 
 $last_line = system($command, $retval);
@@ -495,7 +504,7 @@ echo "Successfully Uploaded";
 #die();
 /*<!--------------------------------video converter----------------------------------------------------->*/
 
-                         $cmdthumb = "/usr/local/bin/ffmpeg -itsoffset -1 -i /Library/webserver/Documents/awanku/subject/vid/converted/$newid.mp4 -ss 5 -vframes 1 -filter:v scale='280:-1' /Library/webserver/Documents/awanku/subject/vid/converted/$newid.jpg";
+                         $cmdthumb = "ffmpeg -itsoffset -1 -i subject/vid/converted/$newid.mp4 -ss 5 -vframes 1 -filter:v scale='280:-1' subject/vid/converted/$newid.jpg";
                          
                          
                          
